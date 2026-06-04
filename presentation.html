@@ -602,6 +602,8 @@ section.has-light-background, section.has-light-background h1, section.has-light
 <div class="slides">
 
 <!-- ══ SLIDE 1 — TITLE ══════════════════════════════════════════ -->
+<!-- Vertical stack: title (default) + bio below it — press ↓ to reveal the bio -->
+<section>
 <section id="slide-title">
   <div class="title-top-row">
     <span></span>
@@ -648,14 +650,24 @@ section.has-light-background, section.has-light-background h1, section.has-light
   <aside class="notes">20 s. Welcome; name the platform. Today's question: where and why do students disengage?</aside>
 </section>
 
+  <!-- ↓ Vertical sub-slide: short bio (reached with the down arrow, off the main progression) -->
+  <section id="slide-bio">
+    <h2><span class="accent">Dr. Duncan Wallace</span></h2>
+    
+    <p class="sm">Database Admin · IADT</p>
+    <div class="title-nav-hint">↑ to return to the title</div>
+    <aside class="notes">Optional: brief personal intro if asked.</aside>
+  </section>
+</section>
+
 <!-- ══ SLIDE 2 — THE PROBLEM ════════════════════════════════════ -->
 <section>
   <h2>The <span class="accent">Problem</span></h2>
   <p class="sm">Irish higher education faces persistent dropout challenges — with direct consequences for students, institutions, and national workforce outcomes.</p>
   <div class="stat-grid">
     <div class="stat-box fragment">
-      <div class="big">~15–25%</div>
-      <div class="label">Non-completion rates across Irish HE — higher for part-time &amp; distance programmes<br><span style="opacity:0.6">(HEA Performance Profiles)</span></div>
+      <div class="big">~11%</div>
+      <div class="label">Non-completion rates across Irish HE for new entrants 2022/23 <br><span style="opacity:0.6">(HEA Performance Profiles)</span></div>
     </div>
     <div class="stat-box fragment">
       <div class="big">Year 2–3</div>
