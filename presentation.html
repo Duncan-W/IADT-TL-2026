@@ -470,11 +470,13 @@
 
 <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/zoom/zoom.js"></script>
 <script>
   Reveal.initialize({
     hash: true, transition: 'slide', backgroundTransition: 'fade',
     progress: true, slideNumber: 'c/t', controls: true, center: true,
     width: 960, height: 600, margin: 0.02, minScale: 0.3, maxScale: 3.0,
+    plugins: [ RevealZoom ]
   });
 
   Chart.defaults.color       = 'rgba(255,255,255,0.75)';
