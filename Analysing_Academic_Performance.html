@@ -635,7 +635,7 @@ section.has-light-background, section.has-light-background h1, section.has-light
     <h1>IADT AdminPortal</span></h1>
   </div>
   <div class="title-subtitle">
-    Analysing Academic Performance &amp; Dropout Patterns<br>
+    Analysing Academic Performance &amp; Non-progression Patterns<br>
     Through Interactive Data Visualisation
   </div>
   <div class="title-tagline">A data-driven approach to student retention</div>
@@ -663,7 +663,7 @@ section.has-light-background, section.has-light-background h1, section.has-light
 <!-- ══ SLIDE 2 — THE PROBLEM ════════════════════════════════════ -->
 <section>
   <h2><span class="accent">The Problem</span></h2>
-  <p class="sm">Irish higher education faces persistent dropout challenges — with direct consequences for students, institutions, and national workforce outcomes.</p>
+  <p class="sm">Irish higher education faces persistent non-completion challenges — with direct consequences for students, institutions, and national workforce outcomes.</p>
   <div class="stat-grid">
     <div class="stat-box fragment">
       <div class="big">~11%</div>
@@ -675,11 +675,11 @@ section.has-light-background, section.has-light-background h1, section.has-light
     </div>
     <div class="stat-box fragment">
       <div class="big">Reactive</div>
-      <div class="label">Many institutions have a partial and delayed understanding of its dropout data, impacting the capacity to intervene or drive developmental changes</div>
+      <div class="label">Many institutions have a partial and delayed understanding of its withdrawal data, impacting the capacity to intervene or drive developmental changes</div>
     </div>
   </div>
   <div class="callout fragment">
-    <strong class="accent">The gap:</strong> Enrolment, grade, and timetable data exist in Banner, AdminPortal, and EventMap — held in separate systems, rarely synthesised into a single actionable retention signal.
+    <strong class="accent">The gap:</strong> Enrolment, grade, and timetable data exist in Banner, the Hub, and EventMap — held in separate systems, rarely synthesised into a single actionable retention signal.
   </div>
   <aside class="notes">45 s. Non-completion figures from HEA Performance Profiles vary by programme type. The problem is latency between signal and response.</aside>
 </section>
@@ -692,7 +692,7 @@ section.has-light-background, section.has-light-background h1, section.has-light
     <div class="feature-card">
       <div class="fc-icon">📊</div>
       <div class="fc-name">Reporting</div>
-      <div class="fc-desc">Enrolment trends, dropout rates, grade distributions — per programme and institution-wide</div>
+      <div class="fc-desc">Enrolment trends, inactive rates, grade distributions — per programme and institution-wide</div>
     </div>
     <div class="feature-card">
       <div class="fc-icon">✅</div>
@@ -712,7 +712,7 @@ section.has-light-background, section.has-light-background h1, section.has-light
   </div>
   <div class="info-row fragment">
     <div class="info-card">
-      <span class="sky bold">/reporting</span> exposes enrolment trend charts, programme drill-downs, and dropout rate analysis — Banner mirror queried in real time, visualised in Vue.js with Chart.js.
+      <span class="sky bold">/reporting</span> exposes enrolment trend charts, programme drill-downs, and inactive rate analysis — Banner mirror queried in real time, visualised in Vue.js with Chart.js.
     </div>
     <div class="info-card">
       The <span class="sky bold">drill-down modal</span> is triggered by clicking any bar in the enrolment trend chart — surfaces a per-programme breakdown for that specific term in an overlay panel.
@@ -815,7 +815,7 @@ section.has-light-background, section.has-light-background h1, section.has-light
 
 <!-- ══ SLIDE 8 — TIMING AND PATTERNS ════════════════════════════ -->
 <section>
-  <h2><span class="accent">Dropout Timing &amp; Student Profile</span></h2>
+  <h2><span class="accent">Noncompletion Timing &amp; Student Profile</span></h2>
   <div style="display:flex; justify-content:flex-end; margin-bottom:10px">
     
   </div>
@@ -828,10 +828,10 @@ section.has-light-background, section.has-light-background h1, section.has-light
     <div>
       <h3>Student type breakdown</h3>
       <div class="chart-wrap" style="height:280px"><canvas id="chart-demographics"></canvas></div>
-      <p class="xs dim" style="margin-top:6px">Cohorts admitted 2020/21 onward. "Not active" = not registered in 2025/26 — includes both completers and dropouts</p>
+      <p class="xs dim" style="margin-top:6px">Cohorts admitted 2020/21 onward. "Not active" = not registered in 2025/26 — includes both completers and non-completers</p>
     </div>
   </div>
-  <aside class="notes">75 s. Left: the last-active-term chart peaks at 2020/21 (38) because it was the largest cohort — most "left" by completing the 1-year programme. Right: ACCS (Access) students are the largest group, with 56 not active since 2020 vs only 1 currently active. For a 1-year programme, most of these will be completers, not dropouts — SGBSTDN_STST_CODE breakdown is needed to distinguish. Query Q6 from the analytical spec.</aside>
+  <aside class="notes">75 s. Left: the last-active-term chart peaks at 2020/21 (38) because it was the largest cohort — most "left" by completing the 1-year programme. Right: ACCS (Access) students are the largest group, with 56 not active since 2020 vs only 1 currently active. For a 1-year programme, most of these will be completers, not non-completers: SGBSTDN_STST_CODE breakdown is needed to distinguish. Query Q6 from the analytical spec.</aside>
 </section>
 
 <!-- ══ SLIDE 9 — LIMITATIONS ════════════════════════════════════ -->
@@ -840,12 +840,12 @@ section.has-light-background, section.has-light-background h1, section.has-light
   <p class="sm" style="margin-bottom:14px">The analysis is only as good as the data it's built on. Several key dimensions are currently absent or ambiguous.</p>
   <div class="limit-grid">
     <div class="limit-item fragment">
-      <strong>Completion vs dropout conflated</strong>
-      <span>For a 1-year programme, "not active next year" covers both successful completers and genuine dropouts. <code>SGBSTDN_STST_CODE</code> disambiguates — but graduate status codes need Admissions confirmation.</span>
+      <strong>Completion vs non-completion conflated</strong>
+      <span>For a 1-year programme, "not active next year" covers both successful completers and genuine non-completion. <code>SGBSTDN_STST_CODE</code> disambiguates — but graduate status codes need Admissions confirmation.</span>
     </div>
     <div class="limit-item fragment">
       <strong>No socioeconomic signal</strong>
-      <span>Banner doesn't capture financial hardship, caring responsibilities, or employment hours — all documented dropout risk factors outside institutional view.</span>
+      <span>Banner doesn't capture financial hardship, caring responsibilities, or employment hours: all documented non-progression risk factors outside institutional view.</span>
     </div>
     <div class="limit-item fragment">
       <strong>RSTS code semantics</strong>
@@ -868,11 +868,11 @@ section.has-light-background, section.has-light-background h1, section.has-light
   <div class="next-grid">
     <div class="next-item fragment">
       <div class="step-num">01</div>
-      <p><strong>Complete/dropout disambiguation</strong> — join <code>SGBSTDN_STST_CODE</code> to the inactive analysis to separate genuine dropouts from programme completers. This is the most urgent analytical gap.</p>
+      <p><strong>Complete/non-complete disambiguation</strong> — join <code>SGBSTDN_STST_CODE</code> to the inactive analysis to separate genuine non-completion from programme completers. This is the most urgent analytical gap.</p>
     </div>
     <div class="next-item fragment">
       <div class="step-num">02</div>
-      <p><strong>Grade-to-dropout linkage</strong> — for students who became inactive, was there a grading signal in the same term? Query Q7 is already written to answer this.</p>
+      <p><strong>Grade-to-non-progression linkage</strong> — for students who became inactive, was there a grading signal in the same term? Query Q7 is already written to answer this.</p>
     </div>
     <div class="next-item fragment">
       <div class="step-num">03</div>
@@ -884,7 +884,7 @@ section.has-light-background, section.has-light-background h1, section.has-light
     </div>
   </div>
   <p class="xs dim" style="margin-top:14px">The Banner write pipeline already exists (Dataverse, EventMap push). Feeding intervention flags <em>back</em> into SIS via the Student Management module is a near-term possibility.</p>
-  <aside class="notes">45 s. The hard infrastructure is done. The most urgent next step is actually simple: add a status-code join to distinguish completers from dropouts. Every IADT programme can be analysed the same way. Invite questions.</aside>
+  <aside class="notes">45 s. The hard infrastructure is done. The most urgent next step is actually simple: add a status-code join to distinguish completers from non-completers. Every IADT programme can be analysed the same way. Invite questions.</aside>
 </section>
 
   <!-- ↓ OUTRO sub-slide — styled to look like a continuation of the bio slide.
@@ -898,7 +898,7 @@ section.has-light-background, section.has-light-background h1, section.has-light
     <div style="display:flex; gap:48px; align-items:center; justify-content:center; margin-top:4px">
       <div style="text-align:left; min-width:280px">
         <p class="fragment sm" style="margin:0 0 18px">
-          <a href="https://www.linkedin.com/in/duncan-wallace-dub/" style="color:#59CBE8">linkedin.com/in/duncan-wallace</a>
+          <a href="https://www.linkedin.com/in/duncan-wallace-dub/" style="color:#59CBE8">linkedin.com/in/duncan-wallace-dub/</a>
         </p>
         <p class="fragment sm" style="margin:0">
           <strong class="accent">AdminPortal</strong><br>
